@@ -1,0 +1,212 @@
+---
+layout: default
+title: About
+hero: true
+---
+{% assign lab = site.data.lab %}
+
+<!-- Section dots (desktop): scrollspy for the home page sections -->
+<nav class="section-dots" aria-label="Sections on this page">
+  <a href="#hero" data-spy="hero"><span>Home</span></a>
+  <a href="#about" data-spy="about"><span>About</span></a>
+  <a href="#research" data-spy="research"><span>Research</span></a>
+  <a href="#stiffness" data-spy="stiffness"><span>Stiffness</span></a>
+  <a href="#toolbox" data-spy="toolbox"><span>Materials</span></a>
+  {% if site.posts.size > 0 %}<a href="#latest" data-spy="latest"><span>News</span></a>{% endif %}
+  <a href="#contact" data-spy="contact"><span>Contact</span></a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero" data-section="hero">
+  <div class="hero-media" aria-hidden="true">
+    {% if lab.hero_video and lab.hero_video != "" %}
+      <video autoplay muted loop playsinline{% if lab.hero_image != "" %} poster="{{ lab.hero_image | relative_url }}"{% endif %}>
+        <source src="{{ lab.hero_video | relative_url }}" type="video/mp4">
+      </video>
+    {% elsif lab.hero_image and lab.hero_image != "" %}
+      <img src="{{ lab.hero_image | relative_url }}" alt="">
+    {% else %}
+      <canvas class="hero-canvas"></canvas>
+    {% endif %}
+  </div>
+  <div class="hero-shade"></div>
+  <div class="container hero-content">
+    <p class="eyebrow eyebrow-light hero-in" style="--d:0">{{ lab.name }}</p>
+    <h1 class="split-words">{{ lab.tagline }}</h1>
+    {% if lab.rotating_words %}
+    <p class="hero-rotator hero-in" style="--d:4">We study <span class="rotator" data-words="{{ lab.rotating_words | join: '|' | escape }}">{{ lab.rotating_words | first }}</span></p>
+    {% endif %}
+    <p class="hero-sub hero-in" style="--d:5">{{ lab.subtitle }}</p>
+    <div class="hero-actions hero-in" style="--d:6">
+      <a class="btn btn-primary" data-magnetic href="#research">Our research</a>
+      <a class="btn btn-ghost" data-magnetic href="{{ '/publications/' | relative_url }}">Publications</a>
+    </div>
+  </div>
+  <div class="hero-foot container">
+    {% if lab.quote %}<blockquote class="hero-quote">“{{ lab.quote }}”<cite>— {{ lab.quote_by }}</cite></blockquote>{% endif %}
+    <a class="scroll-cue" href="#about" aria-label="Scroll to About"><span></span></a>
+    {% if lab.hero_caption %}<p class="hero-caption">{{ lab.hero_caption }}</p>{% endif %}
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about" data-section="about">
+  <div class="container about-grid">
+    <div>
+      <p class="eyebrow">About the lab</p>
+      <div class="about-text reveal-lines">{{ lab.about | markdownify }}</div>
+    </div>
+    <figure class="about-figure tilt" data-cursor="Lorem">
+      <img src="{{ lab.about_image | relative_url }}" alt="" loading="lazy">
+    </figure>
+  </div>
+  <div class="container stats">
+    {% for s in lab.stats %}
+    <div class="stat">
+      <span class="stat-value" data-count="{{ s.value }}">{{ s.value }}</span><span class="stat-plus">+</span>
+      <span class="stat-label">{{ s.label }}</span>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% if lab.keywords %}
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {% for i in (1..2) %}{% for k in lab.keywords %}<span>{{ k }}</span><span class="marquee-dot">●</span>{% endfor %}{% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% include fiber-divider.html %}
+
+<!-- RESEARCH (sticky scroll) -->
+<section class="section section-alt" id="research" data-section="research">
+  <div class="container">
+    <p class="eyebrow">What we study</p>
+    <h2 class="section-title split-words">Research Areas</h2>
+  </div>
+  <div class="container research-sticky">
+    <div class="research-visual" aria-hidden="true">
+      <div class="research-frame">
+        {% for r in site.data.research %}
+          {% if r.video %}<video class="rv{% if forloop.first %} active{% endif %}" autoplay muted loop playsinline src="{{ r.video | relative_url }}"></video>
+          {% else %}<img class="rv{% if forloop.first %} active{% endif %}" src="{{ r.image | relative_url }}" alt="">{% endif %}
+        {% endfor %}
+        <div class="research-counter"><span class="rc-now">01</span> / {% if site.data.research.size < 10 %}0{% endif %}{{ site.data.research.size }}</div>
+      </div>
+    </div>
+    <ol class="research-steps">
+      {% for r in site.data.research %}
+      <li class="research-step{% if forloop.first %} active{% endif %}" data-index="{{ forloop.index0 }}">
+        <div class="rs-media">
+          {% if r.video %}<video autoplay muted loop playsinline src="{{ r.video | relative_url }}"></video>
+          {% else %}<img src="{{ r.image | relative_url }}" alt="{{ r.title }}" loading="lazy">{% endif %}
+        </div>
+        <span class="research-num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+        <h3>{{ r.title }}</h3>
+        {% if r.question %}<p class="research-q">{{ r.question }}</p>{% endif %}
+        <p>{{ r.description }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<!-- MATRIX STIFFNESS EXPLORER -->
+{% assign st = site.data.stiffness %}
+<section class="section" id="stiffness" data-section="stiffness">
+  <div class="container">
+    <p class="eyebrow">Interactive</p>
+    <h2 class="section-title split-words">Matrix stiffness explorer</h2>
+    <p class="section-lede">{{ st.intro }}</p>
+  </div>
+  <div class="container stiff-grid" data-start="{{ st.start_pa | default: 10000 }}">
+    <div class="stiff-stage">
+      <canvas class="stiff-canvas" aria-hidden="true"></canvas>
+      <div class="stiff-readout">
+        <span class="sr-label">Young's modulus</span>
+        <span class="sr-value">E ≈ <b class="sr-num">10 kPa</b></span>
+        <span class="sr-match">Closest tissue: <b class="sr-tissue">Muscle</b></span>
+      </div>
+    </div>
+    <div class="stiff-controls">
+      <div class="stiff-scale">
+        <p class="stiff-legend"><span class="lg lg-t"></span>Tissues <span class="lg lg-m"></span>Materials</p>
+        <ul class="stiff-bands stiff-materials">
+          {% for m in st.materials %}<li class="band band-m" data-min="{{ m.min }}" data-max="{{ m.max }}"><span>{{ m.name }}</span></li>{% endfor %}
+        </ul>
+        <div class="stiff-track">
+          <input type="range" class="stiff-range" min="1" max="11" step="0.01" value="4" aria-label="Matrix stiffness (log scale)">
+        </div>
+        <div class="stiff-ticks" aria-hidden="true">
+          <span>10 Pa</span><span>1 kPa</span><span>100 kPa</span><span>10 MPa</span><span>1 GPa</span><span>100 GPa</span>
+        </div>
+        <ul class="stiff-bands stiff-tissues">
+          {% for t in st.tissues %}<li class="band band-t" data-min="{{ t.min }}" data-max="{{ t.max }}" data-name="{{ t.name }}"><span>{{ t.name }}</span></li>{% endfor %}
+        </ul>
+      </div>
+      <p class="stiff-note">Approximate literature ranges, for illustration. Edit them in <code>_data/stiffness.yml</code>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS TOOLBOX -->
+<section class="section section-alt" id="toolbox" data-section="toolbox">
+  <div class="container">
+    <p class="eyebrow">Platforms</p>
+    <h2 class="section-title split-words">Materials toolbox</h2>
+    <div class="toolbox-grid">
+      {% for pf in site.data.platforms %}
+      <article class="tool-card spotlight">
+        <div class="tool-icon">{% include platform-icon.html icon=pf.icon %}</div>
+        <h3>{{ pf.name }}</h3>
+        <p>{{ pf.text }}</p>
+        {% if pf.tags %}<div class="tool-tags">{% for t in pf.tags %}<span class="tag">{{ t }}</span>{% endfor %}</div>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include fiber-divider.html %}
+
+<!-- LATEST NEWS -->
+{% if site.posts.size > 0 %}
+<section class="section" id="latest" data-section="latest">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Latest</p>
+        <h2 class="section-title split-words">News</h2>
+      </div>
+      <a class="text-link arrow-link" href="{{ '/news/' | relative_url }}">All news <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="news-grid">
+      {% for post in site.posts limit:3 %}{% include news-card.html post=post %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% include cta.html %}
+
+<!-- CONTACT -->
+{% include fiber-divider.html %}
+<section class="section" id="contact" data-section="contact">
+  <div class="container contact-grid">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="section-title split-words">Find us</h2>
+      <address>
+        {% for line in lab.contact.address_lines %}{{ line }}<br>{% endfor %}
+      </address>
+      <p><a class="text-link arrow-link" href="mailto:{{ lab.contact.email }}">{{ lab.contact.email }} <span aria-hidden="true">→</span></a></p>
+    </div>
+    {% if lab.contact.map_embed and lab.contact.map_embed != "" %}
+    <div class="map">
+      <iframe src="{{ lab.contact.map_embed }}" loading="lazy" title="Map" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    {% endif %}
+  </div>
+</section>

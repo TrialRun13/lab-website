@@ -1,0 +1,11 @@
+{% assign post = include.post %}
+<a class="news-card spotlight" href="{{ post.url | relative_url }}" data-cursor="Read">
+  <div class="news-card-media">
+    {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" loading="lazy">{% else %}<div class="news-card-ph" aria-hidden="true"></div>{% endif %}
+  </div>
+  <div class="news-card-body">
+    <p class="news-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>{% if post.category %} · <span class="tag">{{ post.category }}</span>{% endif %}</p>
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.excerpt | strip_html | truncatewords: 22 }}</p>
+  </div>
+</a>

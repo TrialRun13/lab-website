@@ -1,0 +1,34 @@
+# ------------------------------------------------------------------
+# MATERIALS TOOLBOX: platform cards on the home page.
+#   icon: one of  hydrogel | fibres | decell | nanopattern | bioprint | rheology
+#   tags: short property chips (placeholders — edit to match your lab)
+# ------------------------------------------------------------------
+- name: "Tunable hydrogels"
+  icon: hydrogel
+  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod."
+  tags: ["0.1–50 kPa", "Stress relaxation", "Degradable"]
+
+- name: "Electrospun fibres"
+  icon: fibres
+  text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+  tags: ["Aligned / random", "Nano–micro diameter"]
+
+- name: "Decellularised ECM"
+  icon: decell
+  text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
+  tags: ["Tissue-derived", "Native composition"]
+
+- name: "Nanopatterned surfaces"
+  icon: nanopattern
+  text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+  tags: ["Pillars & grooves", "Ligand spacing"]
+
+- name: "3D bioprinting"
+  icon: bioprint
+  text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+  tags: ["Bioinks", "Multi-material"]
+
+- name: "Mechanical testing"
+  icon: rheology
+  text: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit."
+  tags: ["Rheology", "AFM indentation", "Traction force"]

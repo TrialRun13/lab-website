@@ -1,0 +1,23 @@
+# ------------------------------------------------------------------
+# GALLERY: images, captions and filter categories.
+# Put images in assets/img/gallery/ (≤ 1 MB each; .jpg or .webp)
+# The current images are drawn placeholders — replace with real micrographs.
+# ------------------------------------------------------------------
+- image: "/assets/img/gallery/g1.svg"
+  caption: "Collagen I network, reflection confocal (placeholder)"
+  category: "Microscopy"
+- image: "/assets/img/gallery/g2.svg"
+  caption: "Porous hydrogel scaffold, SEM (placeholder)"
+  category: "Materials"
+- image: "/assets/img/gallery/g3.svg"
+  caption: "Electrospun nanofibre mat (placeholder)"
+  category: "Materials"
+- image: "/assets/img/gallery/g4.svg"
+  caption: "Cell spreading on a fibronectin mesh (placeholder)"
+  category: "Microscopy"
+- image: "/assets/img/gallery/g5.svg"
+  caption: "Nanopillar array, tilted SEM (placeholder)"
+  category: "Materials"
+- image: "/assets/img/gallery/g6.svg"
+  caption: "Aligned fibres, two-channel imaging (placeholder)"
+  category: "Microscopy"

@@ -1,0 +1,13 @@
+# Top navigation. Order here = order in the menu.
+- title: About
+  url: /
+- title: People
+  url: /people/
+- title: Publications
+  url: /publications/
+- title: Gallery
+  url: /gallery/
+- title: News
+  url: /news/
+- title: Join Us
+  url: /join-us/

@@ -1,0 +1,25 @@
+# ------------------------------------------------------------------
+# MATRIX STIFFNESS EXPLORER (home page)
+# Values are Young's modulus in pascals (Pa). Ranges are approximate,
+# order-of-magnitude literature values — check and edit for your lab.
+# The slider spans 10 Pa → 100 GPa on a log scale.
+# ------------------------------------------------------------------
+intro: >-
+  Tissues span ten orders of magnitude in stiffness, and cells feel the difference.
+  Drag the slider to see how a cell might spread on a softer or stiffer matrix.
+start_pa: 10000
+
+tissues:
+  - { name: "Brain",          min: 100,          max: 1000 }
+  - { name: "Muscle",         min: 8000,         max: 17000 }
+  - { name: "Osteoid",        min: 25000,        max: 40000 }
+  - { name: "Cartilage",      min: 500000,       max: 1000000 }
+  - { name: "Tendon",         min: 1000000000,   max: 2000000000 }
+  - { name: "Cortical bone",  min: 10000000000,  max: 20000000000 }
+
+# Materials the lab uses (placeholders)
+materials:
+  - { name: "Collagen gels",        min: 50,          max: 1000 }
+  - { name: "Soft hydrogels",       min: 100,         max: 100000 }
+  - { name: "Tissue-culture plastic", min: 2000000000, max: 3500000000 }
+  - { name: "Glass",                min: 50000000000, max: 90000000000 }

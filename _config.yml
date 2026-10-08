@@ -1,0 +1,44 @@
+# ------------------------------------------------------------------
+# Site settings — edit these first.
+# Lab-specific content (name, address, stats, socials) lives in _data/lab.yml
+# ------------------------------------------------------------------
+title: "Lorem Ipsum Lab"
+description: "A lab engineering extracellular-matrix-mimetic biomaterials to understand how cells sense and remodel their surroundings."
+
+# If the site is served at https://<org>.github.io/<repo>/  -> baseurl: "/<repo>"
+# If served at a custom domain or https://<org>.github.io/ -> baseurl: ""
+url: "https://trialrun13.github.io"
+baseurl: "/lab-website"
+
+# Used for the "Edit this site on GitHub" footer link and "Edit this page" buttons
+github_repo: "TrialRun13/lab-website"
+
+lang: en
+timezone: Asia/Singapore
+permalink: /news/:year/:month/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values:
+      layout: post
+  - scope: { path: "" }
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github
+  - tools
+  - node_modules

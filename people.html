@@ -1,0 +1,89 @@
+---
+layout: page
+title: People
+permalink: /people/
+eyebrow: The team
+heading: People
+lede: Cell biologists, materials scientists and engineers, lorem ipsum dolor sit amet.
+---
+{% assign people = site.data.people %}
+{% assign pi = people.pi %}
+
+<section class="section pt-0">
+  <div class="container pi-card">
+    <div class="pi-photo tilt">{% include avatar.html person=pi size="xl" %}</div>
+    <div class="pi-body">
+      <p class="eyebrow">{{ pi.role }}</p>
+      <h2>{{ pi.name }}</h2>
+      {% for para in pi.bio %}<p>{{ para }}</p>{% endfor %}
+      {% if pi.fun_fact %}<p class="fun-fact"><strong>Beyond the lab:</strong> {{ pi.fun_fact }}</p>{% endif %}
+      {% include links.html links=pi.links %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container team-intro">
+    <div>
+      <p class="eyebrow">The team</p>
+      <h2 class="section-title split-words">Lab members</h2>
+      <p>{{ people.team_blurb }}</p>
+    </div>
+    {% if people.team_photo %}<img class="team-photo" src="{{ people.team_photo | relative_url }}" alt="Group photo" loading="lazy">{% endif %}
+  </div>
+
+  <div class="container">
+    {% for g in people.groups %}
+      {% assign in_group = people.members | where: "group", g.key %}
+      {% if in_group.size > 0 %}
+      <h3 class="group-title"><span>{{ g.label }}</span><span class="group-count">{{ in_group.size }}</span></h3>
+      <div class="people-grid">
+        {% for p in in_group %}
+        <article class="person spotlight{% if p.bio %} has-bio{% endif %}"{% if p.bio %} tabindex="0" role="button" aria-haspopup="dialog" data-cursor="Bio"{% endif %}>
+          {% include avatar.html person=p size="lg" %}
+          <h4>{{ p.name }}</h4>
+          <p class="person-title">{{ p.title }}</p>
+          {% if p.research %}<p class="person-research">{{ p.research }}</p>{% endif %}
+          {% include links.html links=p.links %}
+          {% if p.bio %}<template class="person-bio"><p>{{ p.bio }}</p></template>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
+      {% endif %}
+    {% endfor %}
+
+    {% if people.show_you_card %}
+    <div class="people-grid you-grid">
+      <a class="person person-you" href="{{ '/join-us/' | relative_url }}" data-cursor="Apply">
+        <div class="avatar avatar-lg avatar-you" aria-hidden="true">?</div>
+        <h4>You?</h4>
+        <p class="person-title">Lorem ipsum position</p>
+        <p class="person-research">Dolor sit amet. See open positions →</p>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if people.alumni.size > 0 %}
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Where are they now</p>
+    <h2 class="section-title split-words">Alumni</h2>
+    <ul class="alumni-list">
+      {% for a in people.alumni %}
+      <li><strong>{{ a.name }}</strong><span>{{ a.title }}</span><span class="muted">{{ a.now }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+<dialog class="modal" id="person-modal" aria-labelledby="pm-name">
+  <button class="modal-close" type="button" aria-label="Close">×</button>
+  <div class="pm-head"><div class="pm-avatar"></div><div><h3 id="pm-name"></h3><p class="person-title pm-title"></p></div></div>
+  <div class="pm-body"></div>
+  <div class="pm-links"></div>
+</dialog>
+
+{% include cta.html %}

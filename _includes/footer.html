@@ -1,0 +1,33 @@
+{% assign lab = site.data.lab %}
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-big"><a href="mailto:{{ lab.contact.email }}" class="footer-mail" data-cursor="Email">{{ lab.contact.email }}</a></p>
+  </div>
+  <div class="container footer-grid">
+    <div>
+      <a class="brand brand-footer" href="{{ '/' | relative_url }}">{{ lab.name }}</a>
+      <p class="footer-muted">{{ lab.subtitle }}</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      {% for item in site.data.navigation %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
+    </nav>
+    <div class="footer-social">
+      {% for s in lab.socials %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }} ↗</a>{% endfor %}
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© {{ site.time | date: "%Y" }} {{ lab.name }}</span>
+    <span>Edit this site on <a href="https://github.com/{{ site.github_repo }}">GitHub</a></span>
+  </div>
+</footer>
+
+<button class="to-top" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="tt-track" cx="24" cy="24" r="21"/><circle class="tt-ring" cx="24" cy="24" r="21"/><path d="M24 31V17M17.5 23.5 24 17l6.5 6.5"/></svg>
+</button>
+
+<canvas class="ecm-curtain" aria-hidden="true"></canvas>
+
+{% if lab.custom_cursor %}
+<canvas class="cursor-canvas" aria-hidden="true"></canvas>
+<div class="cursor-label" aria-hidden="true"></div>
+{% endif %}

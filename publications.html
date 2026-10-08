@@ -1,0 +1,59 @@
+---
+layout: page
+title: Publications
+permalink: /publications/
+eyebrow: Research output
+heading: Publications
+lede: Lorem ipsum articles, reviews, protocols and preprints.
+---
+{% assign pubs = site.data.publications %}
+{% assign by_year = pubs.papers | group_by: "year" | sort: "name" | reverse %}
+
+<section class="section pt-0">
+  <div class="container">
+    <div class="pub-toolbar">
+      <label class="search-field">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="pub-search" placeholder="Search titles, authors, journals…" aria-label="Search publications">
+      </label>
+      <div class="chips" role="group" aria-label="Filter by type">
+        <button class="chip active" data-filter="all">All <span class="chip-n">{{ pubs.papers.size }}</span></button>
+        <button class="chip" data-filter="article">Articles</button>
+        <button class="chip" data-filter="review">Reviews</button>
+        <button class="chip" data-filter="protocol">Protocols</button>
+        <button class="chip" data-filter="preprint">Preprints</button>
+      </div>
+    </div>
+    <nav class="year-jump" aria-label="Jump to year">
+      {% for year in by_year %}<a href="#y{{ year.name }}">{{ year.name }}</a>{% endfor %}
+    </nav>
+
+    {% for year in by_year %}
+    <div class="pub-year" id="y{{ year.name }}">
+      <h2 class="year-label">{{ year.name }}</h2>
+      <ol class="pub-list">
+        {% for p in year.items %}
+          {% assign authors = p.authors %}
+          {% for h in pubs.highlight %}{% capture strong %}<strong>{{ h }}</strong>{% endcapture %}{% assign authors = authors | replace: h, strong %}{% endfor %}
+        <li class="pub spotlight" data-type="{{ p.type | default: 'article' }}">
+          {% if p.image %}<img class="pub-thumb" src="{{ p.image | relative_url }}" alt="" loading="lazy">{% endif %}
+          <div class="pub-main">
+            <h3>{% if p.url %}<a href="{{ p.url }}" target="_blank" rel="noopener" data-cursor="Open">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</h3>
+            <p class="pub-authors">{{ authors }}</p>
+            <p class="pub-meta">
+              <em>{{ p.journal }}</em> · {{ p.year }}
+              {% if p.type and p.type != "article" %}<span class="tag tag-{{ p.type }}">{{ p.type }}</span>{% endif %}
+              {% if p.pdf %}<a class="tag tag-link" href="{{ p.pdf | relative_url }}">PDF</a>{% endif %}
+              {% if p.code %}<a class="tag tag-link" href="{{ p.code }}" target="_blank" rel="noopener">Code / data</a>{% endif %}
+              <button class="tag tag-link cite-btn" type="button" data-cite="{{ p.authors | strip_html | escape }} ({{ p.year }}). {{ p.title | escape }}. {{ p.journal | escape }}.{% if p.url %} {{ p.url }}{% endif %}">Copy citation</button>
+            </p>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+    {% endfor %}
+    <p class="empty-state" id="pub-empty" hidden>No publications match your search.</p>
+  </div>
+</section>
+<div class="toast" role="status" aria-live="polite"></div>

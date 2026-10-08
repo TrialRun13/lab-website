@@ -1,0 +1,99 @@
+# ------------------------------------------------------------------
+# PEOPLE
+# To add yourself: copy one block under `members`, fill it in, and add a
+# square photo (≥400×400 px) to assets/img/people/<firstname-lastname>.jpg
+# Leave `photo` empty to show your initials instead.
+# `bio` is optional — if present, clicking your card opens a pop-up with it.
+#
+# group must match one of the `key`s under `groups`.
+# When someone leaves, MOVE their block to `alumni` and add `now:`.
+# ------------------------------------------------------------------
+
+pi:
+  name: "Dr Lorem Ipsum"
+  role: "Principal Investigator"
+  photo: ""
+  bio:
+    - >-
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+    - >-
+      Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+  fun_fact: "Excepteur sint occaecat cupidatat non proident."
+  links:
+    email: "lorem@ipsum.edu"
+    scholar: "https://scholar.google.com/"
+    orcid: "https://orcid.org/"
+    linkedin: "https://www.linkedin.com/"
+    x: "https://x.com/"
+
+team_blurb: >-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+  exercitation ullamco laboris.
+team_photo: "/assets/img/team.svg"
+
+# Order and headings of the member sections
+groups:
+  - { key: "Postdoc",             label: "Postdoctoral Fellows" }
+  - { key: "Research Staff",      label: "Research Staff" }
+  - { key: "PhD Student",         label: "PhD Students" }
+  - { key: "Masters / Undergrad", label: "Masters & Undergraduates" }
+  - { key: "Visiting",            label: "Visiting Researchers" }
+
+# Shows a "This could be you" card at the end of the member grid, linking to Join Us
+show_you_card: true
+
+members:
+  - name: "Dolor Sitamet"
+    group: "Postdoc"
+    title: "Research Fellow"
+    photo: ""
+    research: "Collagen remodelling in 3D matrices"
+    bio: >-
+      Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam.
+    links:
+      email: "dolor@ipsum.edu"
+      scholar: "https://scholar.google.com/"
+
+  - name: "Consec Tetur"
+    group: "PhD Student"
+    title: "PhD Candidate"
+    photo: ""
+    research: "Viscoelastic hydrogels and stem cell fate"
+    bio: >-
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+      fugiat nulla pariatur.
+    links:
+      linkedin: "https://www.linkedin.com/"
+
+  - name: "Adipi Scing"
+    group: "PhD Student"
+    title: "PhD Student"
+    photo: ""
+    research: "Electrospun scaffolds for tissue repair"
+    links: {}
+
+  - name: "Eius Modtempor"
+    group: "Research Staff"
+    title: "Research Engineer"
+    photo: ""
+    research: "Rheology and materials characterisation"
+    links: {}
+
+  - name: "Magna Aliqua"
+    group: "Masters / Undergrad"
+    title: "Undergraduate Researcher"
+    photo: ""
+    research: "Image analysis of fibre alignment"
+    links: {}
+
+alumni:
+  - name: "Quis Nostrud"
+    title: "Postdoc (2020–2024)"
+    now: "Assistant Professor, Lorem University"
+  - name: "Exer Citation"
+    title: "PhD (2019–2024)"
+    now: "Scientist, Ipsum Biotech"

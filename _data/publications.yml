@@ -1,0 +1,67 @@
+# ------------------------------------------------------------------
+# PUBLICATIONS: order doesn't matter; the page groups by year automatically.
+#
+# Fields:
+#   title    (required)
+#   authors  (required)  names listed in `highlight` are bolded
+#   journal  (required)
+#   year     (required)
+#   url      link to the paper (DOI link preferred)
+#   type     article | review | preprint | protocol   (non-articles get a badge)
+#   image    optional thumbnail under assets/img/pubs/
+#   pdf      optional PDF under assets/pdf/
+#   code     optional link to code / data
+# ------------------------------------------------------------------
+
+highlight: ["Lorem Ipsum", "L Ipsum", "Dolor Sitamet", "Consec Tetur", "Adipi Scing", "Eius Modtempor"]
+
+papers:
+  - title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    authors: "A Author, Dolor Sitamet, Consec Tetur, Lorem Ipsum"
+    journal: "bioRxiv"
+    year: 2026
+    type: preprint
+    url: "https://www.biorxiv.org/"
+
+  - title: "Sed do eiusmod tempor incididunt ut labore et dolore"
+    authors: "Consec Tetur, B Author, C Author, Lorem Ipsum"
+    journal: "Journal of Lorem Ipsum"
+    year: 2026
+    type: article
+    url: "https://doi.org/"
+    code: "https://github.com/"
+
+  - title: "Ut enim ad minim veniam: a review of quis nostrud"
+    authors: "Adipi Scing, Consec Tetur, Lorem Ipsum"
+    journal: "Dolor Reviews"
+    year: 2025
+    type: review
+    url: "https://doi.org/"
+
+  - title: "Duis aute irure dolor in reprehenderit in voluptate"
+    authors: "Dolor Sitamet, D Author, Consec Tetur, Lorem Ipsum"
+    journal: "Sit Amet Science"
+    year: 2025
+    type: article
+    url: "https://doi.org/"
+
+  - title: "A protocol for excepteur sint occaecat cupidatat"
+    authors: "Dolor Sitamet, Eius Modtempor, Lorem Ipsum"
+    journal: "Lorem Protocols"
+    year: 2025
+    type: protocol
+    url: "https://doi.org/"
+
+  - title: "Sunt in culpa qui officia deserunt mollit anim"
+    authors: "Dolor Sitamet, E Author, F Author, Lorem Ipsum"
+    journal: "Proceedings of Ipsum"
+    year: 2024
+    type: article
+    url: "https://doi.org/"
+
+  - title: "Nemo enim ipsam voluptatem quia voluptas"
+    authors: "G Author, H Author, Lorem Ipsum"
+    journal: "Consectetur Biology"
+    year: 2023
+    type: article
+    url: "https://doi.org/"

@@ -1,0 +1,36 @@
+---
+layout: page
+title: News
+permalink: /news/
+eyebrow: What's happening
+heading: News
+lede: Lorem ipsum papers, awards, arrivals and adventures.
+---
+<section class="section pt-0">
+  <div class="container narrow-wide">
+    {% if site.posts.size == 0 %}
+      <p class="empty-state">No news yet. Add a Markdown file to <code>_posts/</code>.</p>
+    {% else %}
+    <div class="timeline">
+      <span class="timeline-line" aria-hidden="true"><span class="timeline-fill"></span></span>
+      <ol class="tl-list">
+      {% for post in site.posts %}
+      {% assign y = post.date | date: "%Y" %}
+      {% if y != prev_year %}<li class="tl-year"><span>{{ y }}</span></li>{% assign prev_year = y %}{% endif %}
+      <li class="tl-item">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <a class="tl-card spotlight" href="{{ post.url | relative_url }}" data-cursor="Read">
+          {% if post.image %}<img src="{{ post.image | relative_url }}" alt="" loading="lazy">{% endif %}
+          <div>
+            <p class="news-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>{% if post.category %} · <span class="tag">{{ post.category }}</span>{% endif %}</p>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt | strip_html | truncatewords: 26 }}</p>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+      </ol>
+    </div>
+    {% endif %}
+  </div>
+</section>

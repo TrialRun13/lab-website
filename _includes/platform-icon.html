@@ -1,0 +1,36 @@
+{% comment %} Animated line icons for the Materials toolbox. Usage: {% include platform-icon.html icon="hydrogel" %} {% endcomment %}
+<svg class="pf-icon pf-{{ include.icon }}" viewBox="0 0 64 64" aria-hidden="true">
+{% case include.icon %}
+{% when "hydrogel" %}
+  <g class="pf-swell">
+    <path d="M12 20 L28 12 L46 18 L52 34 L42 50 L22 52 L10 38 Z"/>
+    <path d="M12 20 L30 30 L46 18 M30 30 L52 34 M30 30 L42 50 M30 30 L22 52 M30 30 L10 38 M28 12 L30 30"/>
+    <circle cx="30" cy="30" r="2.2" class="pf-dot"/><circle cx="12" cy="20" r="1.8" class="pf-dot"/><circle cx="46" cy="18" r="1.8" class="pf-dot"/><circle cx="52" cy="34" r="1.8" class="pf-dot"/><circle cx="42" cy="50" r="1.8" class="pf-dot"/><circle cx="22" cy="52" r="1.8" class="pf-dot"/><circle cx="10" cy="38" r="1.8" class="pf-dot"/><circle cx="28" cy="12" r="1.8" class="pf-dot"/>
+  </g>
+{% when "fibres" %}
+  <path class="pf-draw" style="--d:0" d="M6 14 C22 18 40 10 58 16"/>
+  <path class="pf-draw" style="--d:1" d="M4 30 C20 26 42 36 60 28"/>
+  <path class="pf-draw" style="--d:2" d="M6 46 C24 50 38 42 58 48"/>
+  <path class="pf-draw pf-alt" style="--d:3" d="M14 6 C20 24 12 40 20 58"/>
+  <path class="pf-draw pf-alt" style="--d:4" d="M44 6 C38 22 48 42 40 58"/>
+{% when "decell" %}
+  <path d="M32 6 C46 6 56 16 56 30 C56 46 44 58 32 58 C18 58 8 46 8 32 C8 18 18 6 32 6 Z" class="pf-outline"/>
+  <path class="pf-draw" style="--d:0" d="M14 22 C26 18 38 26 50 20"/>
+  <path class="pf-draw" style="--d:1" d="M12 34 C24 30 40 38 52 32"/>
+  <path class="pf-draw" style="--d:2" d="M16 46 C28 42 38 50 48 44"/>
+  <circle cx="24" cy="27" r="2" class="pf-ghost"/><circle cx="40" cy="40" r="2" class="pf-ghost"/>
+{% when "nanopattern" %}
+  {% for r in (0..3) %}{% for c in (0..3) %}<circle class="pf-pillar" style="--d:{{ r | plus: c }}" cx="{{ c | times: 14 | plus: 11 }}" cy="{{ r | times: 14 | plus: 11 }}" r="4"/>{% endfor %}{% endfor %}
+{% when "bioprint" %}
+  <path d="M26 6 h12 v10 l-4 6 h-4 l-4 -6 Z" class="pf-outline pf-nozzle"/>
+  <path class="pf-draw" style="--d:0" d="M8 56 H56"/>
+  <path class="pf-draw" style="--d:1" d="M10 50 H54"/>
+  <path class="pf-draw" style="--d:2" d="M12 44 H52"/>
+  <path class="pf-draw" style="--d:3" d="M14 38 H50"/>
+  <path class="pf-extrude" d="M32 22 V36"/>
+{% when "rheology" %}
+  <path class="pf-axis" d="M8 8 V56 H58"/>
+  <path class="pf-draw" style="--d:0" d="M10 40 C16 26 22 26 28 40 C34 54 40 54 46 40 C50 30 54 28 58 32"/>
+  <path class="pf-draw pf-alt" style="--d:2" d="M10 34 C16 22 22 24 28 34 C34 46 40 48 46 36 C50 28 54 26 58 28"/>
+{% endcase %}
+</svg>

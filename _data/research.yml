@@ -1,0 +1,40 @@
+# ------------------------------------------------------------------
+# Research areas: shown as a sticky-scroll section on the home page.
+#   question: a short guiding question (big text)
+#   image:    path under assets/ (png, jpg, svg, gif) — or use `video:` with an .mp4
+# Titles/questions are ECM-themed placeholders; descriptions are lorem ipsum.
+# ------------------------------------------------------------------
+- title: "Matrix Remodelling"
+  question: "How do cells pull, align and degrade the fibres around them?"
+  image: "/assets/img/research-1.svg"
+  description: >-
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+
+- title: "Viscoelastic Hydrogels"
+  question: "How does matrix stress relaxation guide cell fate?"
+  image: "/assets/img/research-2.svg"
+  description: >-
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+
+- title: "Fibrous Scaffolds"
+  question: "Can fibre architecture instruct tissue regeneration?"
+  image: "/assets/img/research-3.svg"
+  description: >-
+    Sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis
+    unde omnis iste natus error sit voluptatem accusantium doloremque.
+
+- title: "Cell–Matrix Adhesion"
+  question: "How do adhesions sense and transmit matrix forces?"
+  image: "/assets/img/research-4.svg"
+  description: >-
+    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
+    quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+- title: "Nanotopography & Biointerfaces"
+  question: "How do nanoscale surface features talk to cells?"
+  image: "/assets/img/research-5.svg"
+  description: >-
+    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+    adipisci velit, sed quia non numquam eius modi tempora incidunt.

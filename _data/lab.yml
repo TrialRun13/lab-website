@@ -1,0 +1,73 @@
+# ------------------------------------------------------------------
+# Lab identity: shown in header, hero, footer and contact section.
+# Replace every "Lorem ipsum" with your own words.
+# ------------------------------------------------------------------
+name: "Lorem Ipsum Lab"
+short_name: "LIL"
+tagline: "Engineering the matrix cells call home."
+# Words cycled in the hero line "We study ___"
+rotating_words: ["extracellular matrix", "soft hydrogels", "fibre remodelling", "cell–matrix mechanics", "nanobiomaterials"]
+subtitle: "We design soft biomaterials that recreate the extracellular matrix, and use them to learn how cells sense, build and remodel their surroundings."
+quote: "Lorem ipsum: the matrix is the message"
+quote_by: "Dolor sit, probably"
+
+# Hero background:
+#   - leave hero_video and hero_image empty to use the animated ECM fibre network (default)
+#   - or set hero_video to an .mp4 in assets/media/ (muted loop), or hero_image to a picture
+hero_video: ""
+hero_image: ""
+hero_caption: "Simulated collagen network · move or click to apply traction"
+
+about: >-
+  Lorem ipsum dolor sit amet. We work at the interface of **extracellular matrix
+  biology, soft-matter physics and biomaterials engineering**, building tunable
+  matrices to ask how stiffness, viscoelasticity and fibre architecture steer cell
+  behaviour, consectetur adipiscing elit.
+about_image: "/assets/img/about.svg"
+
+# Keywords scrolling in the band below the About section
+keywords: ["Collagen", "Fibronectin", "Hyaluronan", "Hydrogels", "Viscoelasticity", "Electrospinning", "Nanotopography", "MMP remodelling", "Mechanotransduction", "Bioprinting"]
+
+# Animated counters in the About section (placeholder numbers)
+stats:
+  - value: 25
+    label: "Matrix formulations"
+  - value: 12
+    label: "Lab members"
+  - value: 40
+    label: "Publications"
+  - value: 1000
+    label: "Hydrogels cast"
+
+# "Join us" banner shown at the bottom of several pages
+cta_eyebrow: "Join us"
+cta_title: "Help us engineer better matrices"
+cta_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+contact:
+  email: "lorem@ipsum.edu"
+  address_lines:
+    - "Lorem Ipsum Building, Room 00-00"
+    - "123 Dolor Sit Avenue"
+    - "Amet City 000000"
+  # Paste the "src" URL from Google Maps → Share → Embed a map. Leave "" to hide the map.
+  map_embed: "https://maps.google.com/maps?q=0,0&z=2&output=embed"
+
+socials:
+  - name: "X / Twitter"
+    url: "https://x.com/"
+  - name: "Bluesky"
+    url: "https://bsky.app/"
+  - name: "LinkedIn"
+    url: "https://www.linkedin.com/"
+
+# Fancy cursor: a migrating cell that remodels (aligns, compacts, recolours) the fibre matrix around it.
+# Set false to use the normal pointer.
+custom_cursor: true
+
+# Join Us page. Leave as [] when there are no open positions.
+openings:
+  - title: "Lorem ipsum PhD position"
+    type: "PhD"
+    description: "Dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt."
+    apply: "mailto:lorem@ipsum.edu?subject=PhD%20application"

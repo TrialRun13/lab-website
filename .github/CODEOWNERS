@@ -1,0 +1,8 @@
+# Pull requests touching these paths need approval from the listed owners.
+# Uncomment the lines below after creating a team. Replace @your-org/web-admins with a GitHub team or usernames (e.g. @janedoe).
+# _layouts/      @your-org/web-admins
+# _includes/     @your-org/web-admins
+# assets/css/    @your-org/web-admins
+# assets/js/     @your-org/web-admins
+# .github/       @your-org/web-admins
+# _config.yml    @your-org/web-admins

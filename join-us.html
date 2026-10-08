@@ -1,0 +1,59 @@
+---
+layout: page
+title: Join Us
+permalink: /join-us/
+eyebrow: Opportunities
+heading: Build the matrix with us.
+lede: We welcome biologists, materials scientists, engineers and physicists curious about how cells and matrices shape each other.
+---
+{% assign lab = site.data.lab %}
+<section class="section pt-0" id="join-the-team">
+  <div class="container">
+    <h2 class="section-title split-words">Open positions</h2>
+    {% if lab.openings.size > 0 %}
+      <div class="openings">
+        {% for o in lab.openings %}
+        <article class="opening spotlight">
+          <div>
+            <span class="tag tag-open">{{ o.type }}</span>
+            <h3>{{ o.title }}</h3>
+            <p>{{ o.description }}</p>
+          </div>
+          <a class="btn btn-primary" data-magnetic href="{{ o.apply }}">Apply <span aria-hidden="true">→</span></a>
+        </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="no-openings">
+        <p><strong>There are currently no openings.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    {% endif %}
+
+    <div class="join-grid">
+      <div class="join-card spotlight">
+        <span class="join-num">01</span>
+        <h3>PhD students</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+      </div>
+      <div class="join-card spotlight">
+        <span class="join-num">02</span>
+        <h3>Postdocs</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+      </div>
+      <div class="join-card spotlight">
+        <span class="join-num">03</span>
+        <h3>Students & interns</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
+  <div class="container contact-cta">
+    <p class="eyebrow">Questions?</p>
+    <h2 class="section-title split-words">Get in touch</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <a class="btn btn-primary" data-magnetic href="mailto:{{ lab.contact.email }}">{{ lab.contact.email }}</a>
+  </div>
+</section>

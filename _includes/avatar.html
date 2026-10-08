@@ -1,0 +1,9 @@
+{% comment %} Usage: {% include avatar.html person=p size="lg" %} {% endcomment %}
+{% assign p = include.person %}
+{% if p.photo and p.photo != "" %}
+  <img class="avatar avatar-{{ include.size | default: 'md' }}" src="{{ p.photo | relative_url }}" alt="{{ p.name }}" loading="lazy">
+{% else %}
+  {% assign clean = p.name | remove: "Dr " | remove: "Prof " %}
+  {% assign parts = clean | split: " " %}
+  <div class="avatar avatar-{{ include.size | default: 'md' }} avatar-initials" aria-hidden="true">{{ parts.first | slice: 0 }}{{ parts.last | slice: 0 }}</div>
+{% endif %}
